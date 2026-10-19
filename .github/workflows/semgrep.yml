@@ -1,0 +1,10 @@
+name: semgrep
+on: [push]
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    steps:
+      - uses: actions/checkout@v4
+      - run: semgrep --config auto views/promotionVideo.pug terraform/networking.tf
